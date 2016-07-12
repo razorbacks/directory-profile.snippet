@@ -1,5 +1,6 @@
 # directory profile snippet
-for [OmniUpdate Campus CMS](http://omniupdate.com/products/oucampus/)
+* For use with [OmniUpdate Campus CMS](http://omniupdate.com/products/oucampus/).
+* Requires [Bootstrap](http://getbootstrap.com/).
 
 ## In Editor:  
 ![popover screenshot](https://raw.githubusercontent.com/admonkey/directory-profile.snippet/master/snippet.screenshot.png)
