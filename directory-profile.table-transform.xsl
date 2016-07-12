@@ -16,8 +16,8 @@
                                 <p><xsl:value-of select="tbody/tr/td[@class='bio-info']"/></p>
                                 <div id="tabstrip">
                                         <ul id="myTab" class="nav nav-tabs">
-                                                <xsl:for-each select="tbody/tr[@class='tabsection']">
-                                                        <xsl:if test="(td[@class='tab-content'] != '') and (td[@class='tab-content'] != ' ') and (td[@class='tab-content'] != '&#160;')">
+                                                <xsl:for-each select="tbody/tr[@class='tabsection' and td[@class='tab-content' and text() != '&#160;' and text() != ' ' and text() != '']]">
+
                                                                 <li>
                                                                         <xsl:attribute name="class">
                                                                                 <xsl:if test="position() = 1">active</xsl:if>
@@ -26,16 +26,16 @@
                                                                                 <xsl:value-of select="td[@class='ou-help tab-title']" />
                                                                         </a>
                                                                 </li>
-                                                        </xsl:if>
+
                                                 </xsl:for-each>
                                         </ul>
                                         <div class="tab-content">
-                                                <xsl:for-each select="tbody/tr[@class='tabsection']">
-                                                        <xsl:if test="(td[@class='tab-content'] != '') and (td[@class='tab-content'] != ' ') and (td[@class='tab-content'] != '&#160;')">
+                                                <xsl:for-each select="tbody/tr[@class='tabsection' and td[@class='tab-content' and text() != '&#160;' and text() != ' ' and text() != '']]">
+
                                                                 <div style="border-right: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; padding: 25px;" id="tab-{generate-id()}" class="tab-pane{if(position() = 1) then ' active' else ''}">
                                                                         <xsl:apply-templates select="td[@class='tab-content']/node()" mode="copy" />
                                                                 </div>
-                                                        </xsl:if>
+
                                                 </xsl:for-each>
                                         </div>
                                 </div>
