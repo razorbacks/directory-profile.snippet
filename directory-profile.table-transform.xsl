@@ -16,7 +16,7 @@
                                 <p><xsl:value-of select="tbody/tr/td[@class='bio-info']"/></p>
                                 <div id="tabstrip">
                                         <ul id="myTab" class="nav nav-tabs">
-                                                <xsl:for-each select="tbody/tr[@class='tabsection' and td[@class='tab-content' and text() != '&#160;' and text() != ' ' and text() != '']]">
+                                                <xsl:for-each select="tbody/tr[@class='tabsection' and td[@class='tab-content' and text() != '&#160;' and text() != ' ' and text() != '' and not(p[text() = '&#160;'])]]">
 
                                                                 <li>
                                                                         <xsl:attribute name="class">
@@ -30,7 +30,7 @@
                                                 </xsl:for-each>
                                         </ul>
                                         <div class="tab-content">
-                                                <xsl:for-each select="tbody/tr[@class='tabsection' and td[@class='tab-content' and text() != '&#160;' and text() != ' ' and text() != '']]">
+                                                <xsl:for-each select="tbody/tr[@class='tabsection' and td[@class='tab-content' and text() != '&#160;' and text() != ' ' and text() != '' and not(p[text() = '&#160;'])]]">
 
                                                                 <div style="border-right: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; padding: 25px;" id="tab-{generate-id()}" class="tab-pane{if(position() = 1) then ' active' else ''}">
                                                                         <xsl:apply-templates select="td[@class='tab-content']/node()" mode="copy" />
